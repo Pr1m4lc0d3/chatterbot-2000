@@ -14,7 +14,7 @@ desktop, without a browser tab or a window stealing your focus.
 
 | Conversation | Settings |
 |:---:|:---:|
-| ![Chat view](docs/screenshot-chat.png) | ![Settings view](docs/screenshot-settings.png) |
+| <img src="docs/screenshot-chat.png" width="360" alt="Chat view"> | <img src="docs/screenshot-settings.png" width="360" alt="Settings view"> |
 
 ---
 
