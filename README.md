@@ -12,11 +12,9 @@ desktop, without a browser tab or a window stealing your focus.
 > You need Rainmeter installed first — it is free, open source, and Windows only.
 > **Download it here: https://www.rainmeter.net/** (4.5 or newer).
 
-<p align="center">
-  <img src="docs/screenshot-chat.png" width="330" alt="Chat view">
-  &nbsp;&nbsp;
-  <img src="docs/screenshot-settings.png" width="330" alt="Settings view">
-</p>
+| Conversation | Settings |
+|:---:|:---:|
+| ![Chat view](docs/screenshot-chat.png) | ![Settings view](docs/screenshot-settings.png) |
 
 ---
 
