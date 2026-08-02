@@ -40,7 +40,20 @@ BadColor=235,90,90,255
 StatusColor=235,90,90,255
 
 ; Which of Chatty's faces is showing. Swapped by state.
-ChattyFace=chatty.png
+; ---------------------------------------------------------------------------
+;  PERSONA - who is inhabiting the terminal.
+;
+;  The skin is a shell. Everything identifying it lives here, so a different
+;  agent can take it over without touching a meter: the header name, the input
+;  prompt, the face, and the accent colour. config.ps1 pushes these at runtime
+;  from config.json, exactly the way it already pushes the provider row.
+;
+;  Defaults are Chatty. An empty field in config.json means "leave the default",
+;  so a half-configured persona degrades to Chatterbot rather than to blanks.
+; ---------------------------------------------------------------------------
+BotName=Chatterbot 2000
+BotAsk=Ask Chatty...
+BotFace=chatty.png
 HeaderH=56
 ; Source pills
 PillColor=255,255,255,20

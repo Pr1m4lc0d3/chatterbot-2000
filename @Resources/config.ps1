@@ -102,6 +102,19 @@ for ($i = 0; $i -lt $order.Count; $i++) {
     & $rm !SetVariable "Prov$($i + 1)Style" $style 'Chatterbot 2000' 2>$null
 }
 
+# ---- persona -----------------------------------------------------------------
+# The skin is a shell. An agent can take over the header name, the input prompt
+# and the face without any meter changing. Only non-empty values are pushed, so
+# a partly configured persona falls back to the Chatty defaults in Variables.inc
+# rather than blanking the header.
+function PushIfSet([string]$name, [string]$value) {
+    if ([string]::IsNullOrWhiteSpace($value)) { return }
+    & $rm !SetVariable $name $value 'Chatterbot 2000' 2>$null
+}
+PushIfSet 'BotName' "$($cfg.BotName)"
+PushIfSet 'BotAsk'  "$($cfg.BotAsk)"
+PushIfSet 'BotFace' "$($cfg.BotFace)"
+
 & $rm !SetVariable 'CfgProvider'  (Arg "$($cfg.Provider)")        'Chatterbot 2000' 2>$null
 & $rm !SetVariable 'CfgBaseUrl'   (Arg "$($cfg.BaseUrl)")         'Chatterbot 2000' 2>$null
 & $rm !SetVariable 'CfgModel'     (Arg "$($cfg.Model)")           'Chatterbot 2000' 2>$null

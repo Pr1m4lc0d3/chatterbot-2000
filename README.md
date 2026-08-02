@@ -67,6 +67,26 @@ plainly and answers from its own knowledge instead of pretending.
 
 Weather never needs a key either way.
 
+## Give it a different character
+
+The skin is a shell. Four fields in `@Resources\config.json` and a different
+character inhabits it — header, input prompt, face and personality:
+
+```json
+"BotName":   "Apothecary 2000",
+"BotAsk":    "Ask the Apothecary...",
+"BotFace":   "apothecary.png",
+"BotPrompt": "You are the Apothecary, a herbalist advising from a small desktop panel."
+```
+
+`BotFace` is a filename in `@Resources\Images`. Leave any field empty and it
+keeps the Chatty default, so a half-finished persona degrades gracefully
+instead of showing blanks. Reload the skin once after changing the face.
+
+`BotPrompt` replaces the identity line only — the panel's rendering and tool
+rules are always applied, so a persona can't start emitting markdown the panel
+cannot draw.
+
 ## How it works
 
 Four files, one job each.

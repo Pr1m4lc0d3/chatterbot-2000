@@ -211,13 +211,26 @@ $IsDeepSeek = $BaseUrl -match 'deepseek'
 $Thinking   = $IsDeepSeek -and ($mode -ge 1)
 
 # -- Conversation history ----------------------------------------------------
+# WHO is speaking is swappable; HOW the panel works is not. A persona supplies
+# the identity line only, and still inherits the rendering and tool rules below,
+# because those describe the surface it is speaking through - a persona that
+# forgot them would emit markdown into a panel that cannot render it.
+#
+# Note the transcript still labels replies "Chatty". That is a protocol token
+# chat.lua parses on, not a display name: the bubbles show a face, never a
+# label. Renaming it would break the renderer for no visible gain.
+$identity = "$($cfg.BotPrompt)"
+if ([string]::IsNullOrWhiteSpace($identity)) {
+    $identity = 'You are Chatty, the assistant inside a small desktop panel called Chatterbot 2000. If you are asked who or what you are, you are Chatty.'
+}
+
 $sysMsg = [PSCustomObject]@{
     role    = 'system'
     # The date matters more than it looks. Without it the model treats the last
     # event in its training data as "the most recent", and confidently reports a
     # years-old result as current even while holding fresh search results.
     content = ("Today's date is " + (Get-Date -Format 'dddd, d MMMM yyyy') + ". " +
-        'You are Chatty, the assistant inside a small desktop panel called Chatterbot 2000. If you are asked who or what you are, you are Chatty. Answer in plain prose. ' +
+        $identity + ' Answer in plain prose. ' +
         'Never use markdown, asterisks, backticks or headers - they cannot be rendered. ' +
         'Keep answers tight unless asked to expand. ' +
         'You have live tools: web_search for anything current or beyond your training data, and ' +

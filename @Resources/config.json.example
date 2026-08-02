@@ -3,5 +3,20 @@
   "BaseUrl": "http://localhost:11434/v1",
   "Model": "llama3.1",
   "ApiKey": "",
-  "SearchApiKey": ""
+  "SearchApiKey": "",
+
+  "_persona": "Optional. The skin is a shell - fill these in and a different character inhabits it. Any field left empty keeps the Chatty default, so a partial persona degrades to Chatterbot instead of blanking the header.",
+  "BotName": "",
+  "BotAsk": "",
+  "BotFace": "",
+  "BotPrompt": "",
+
+  "_persona_example": {
+    "BotName": "Apothecary 2000",
+    "BotAsk": "Ask the Apothecary...",
+    "BotFace": "apothecary.png",
+    "BotPrompt": "You are the Apothecary, a herbalist advising from a small desktop panel. If you are asked who or what you are, you are the Apothecary."
+  },
+
+  "_persona_notes": "BotFace is a filename inside @Resources\\Images. BotPrompt replaces the identity line only - the panel's rendering and tool rules are always appended, so a persona cannot start emitting markdown the panel cannot draw."
 }

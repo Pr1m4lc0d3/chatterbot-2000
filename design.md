@@ -269,6 +269,34 @@ that none are left behind.
 - No markdown rendering. Rainmeter has no rich text; the system prompt asks for plain prose.
 - No multi-conversation management. One transcript, cleared on demand.
 
+## Persona - the skin is a shell
+
+Nothing identifying the terminal is hardcoded any more. `BotName`, `BotAsk`,
+`BotFace` and `BotPrompt` in `config.json` let a different character inhabit the
+same skin: the header reads `Apothecary 2000`, the input reads
+`Ask the Apothecary...`, the face changes, and it answers as the Apothecary.
+
+`config.ps1` pushes them with the same `!SetVariable` mechanism that already
+feeds the provider row. **Empty fields are not pushed**, so a half-configured
+persona falls back to the Chatty defaults in `Variables.inc` rather than
+blanking the header.
+
+Two things deliberately do NOT change with the persona:
+
+- **The transcript still labels replies `Chatty`.** That is a protocol token
+  `chat.lua` parses on, not a display name - bubbles show a face, never a label.
+  Renaming it would break the renderer for no visible gain.
+- **`BotPrompt` replaces the identity sentence only.** The rendering and tool
+  rules are always appended, because they describe the surface the persona is
+  speaking through. A persona that "forgot" them would emit markdown into a
+  panel that cannot draw it.
+
+The footer keeps showing `provider - model`, so the platform stays visible even
+when the header carries a borrowed name.
+
+Changing `BotFace` or the branding needs the skin reloaded once, since the
+variables are read at load; after that, pushes apply live.
+
 ## Message bubbles
 
 The conversation is NOT one String meter any more. One meter carries one alignment, one
