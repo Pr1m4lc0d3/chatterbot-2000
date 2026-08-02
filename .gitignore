@@ -1,0 +1,23 @@
+# ---------------------------------------------------------------------------
+#  SECRETS - never commit
+# ---------------------------------------------------------------------------
+# config.json holds the user's API keys. config.json.example ships instead, and
+# the settings view writes a real config.json on first run.
+@Resources/config.json
+**/config.json
+
+# ---------------------------------------------------------------------------
+#  Runtime state - written while the skin runs, meaningless to anyone else
+# ---------------------------------------------------------------------------
+@Resources/transcript.txt
+@Resources/conversation.json
+@Resources/state.txt
+@Resources/links.txt
+@Resources/query.ini
+
+# ---------------------------------------------------------------------------
+#  Local history
+# ---------------------------------------------------------------------------
+_backup-*/
+*.bak
+*.bak-*

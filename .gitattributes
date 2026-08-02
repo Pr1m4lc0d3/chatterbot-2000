@@ -1,0 +1,15 @@
+# The skin file is UTF-16LE. Git currently detects it as binary because of the
+# NUL bytes, but say so explicitly: if it were ever treated as text, line-ending
+# normalisation would corrupt every character in it.
+*.ini -text
+
+# Rainmeter and Windows Script Host both expect CRLF in these.
+*.ps1  text eol=crlf
+*.vbs  text eol=crlf
+*.inc  text eol=crlf
+*.lua  text eol=crlf
+
+*.png binary
+*.ttf binary
+*.bmp binary
+*.rmskin binary

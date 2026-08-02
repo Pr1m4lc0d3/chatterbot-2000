@@ -1,0 +1,7 @@
+{
+  "Provider": "Ollama",
+  "BaseUrl": "http://localhost:11434/v1",
+  "Model": "llama3.1",
+  "ApiKey": "",
+  "SearchApiKey": ""
+}
