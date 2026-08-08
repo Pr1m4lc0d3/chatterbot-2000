@@ -73,10 +73,11 @@ Weather never needs a key either way.
 
 Chatty handles the everyday. If you want an expert in one trade, there are 40
 vocational **CODE·A.I. specialists** you can hire from inside the app for
-**$3.99 once** — yours to keep.
+**$9.99 a month** — cancel any time.
 
-They are entirely optional and Chatty is complete without one. Nothing here is
-time-limited or nagged. [What they are](https://deliberon.com/code-ai).
+They are entirely optional and Chatty is complete without one. Nothing is
+nagged, and the app itself stays free whether you hire one or not.
+[What they are](https://deliberon.com/code-ai).
 
 ## Privacy
 
