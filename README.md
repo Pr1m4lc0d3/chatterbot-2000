@@ -108,7 +108,10 @@ debugging time, are in [`design.md`](design.md).
 ## Platforms
 
 **Windows** today, as an app or as a Rainmeter skin.
-**macOS, Linux and Android** are coming.
+**macOS and Android** are coming.
+
+<!-- No Linux port is planned - the reachable market does not justify it. -->
+
 
 ## Credits
 
