@@ -5,9 +5,10 @@ answers in place — no browser tab, no sign-up, and nothing to pay us, ever.
 
 ![Chatterbot 2000](docs/og.png)
 
-Chatterbot 2000 is a **standalone Windows app**. One file, double-click, done.
-It talks to any OpenAI-compatible model, including one running on your own
-machine, so you bring your own key — or no key at all.
+Chatterbot 2000 is a **standalone Windows app** — one file, double-click, done —
+and also a **Rainmeter skin** if you want a true desktop widget. It talks to any
+OpenAI-compatible model, including one running on your own machine, so you bring
+your own key — or no key at all.
 
 **Download: [chatterbot2000.com](https://chatterbot2000.com)** · installers are
 published under [Releases](../../releases).
@@ -85,17 +86,29 @@ time-limited or nagged. [What they are](https://deliberon.com/code-ai).
 - Your keys and your vault live on your own disk, excluded from packaging and
   from version control.
 
-## The Rainmeter skin (legacy)
+## Two ways to run him
 
-Chatterbot 2000 began as a Rainmeter skin, and that version still lives in this
-repository — `Chatterbot 2000.ini` and `@Resources`.
+Both are supported, both live in this repository, and you can run either one.
 
-**It is no longer the product.** The Windows app is, and it is where new work
-goes. The skin needs [Rainmeter](https://www.rainmeter.net/) 4.5+ installed
-first and is kept here for people already running it.
+| | **Windows app** | **Rainmeter skin** |
+|---|---|---|
+| Install | one installer, no admin | `.rmskin`, double-click |
+| Needs | nothing else | [Rainmeter](https://www.rainmeter.net/) 4.5+ |
+| Sits | as its own window | on the desktop, under your windows |
+| Get it | [chatterbot2000.com](https://chatterbot2000.com) | [Releases](../../releases) |
+
+The **app** is the fuller of the two and is where new work lands first. The
+**skin** is for people who want a true desktop widget living behind everything
+else, and it is still maintained — the files are `Chatterbot 2000.ini` and
+`@Resources`.
 
 The skin's own notes, including its persona fields and the traps that cost real
 debugging time, are in [`design.md`](design.md).
+
+## Platforms
+
+**Windows** today, as an app or as a Rainmeter skin.
+**macOS, Linux and Android** are coming.
 
 ## Credits
 
