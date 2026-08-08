@@ -1,48 +1,46 @@
 # Chatterbot 2000
 
-**An AI terminal for your desktop.** A Rainmeter skin that talks to any
-OpenAI-compatible model — including one running on your own machine.
+**A friendly little robot for your Windows desktop.** Ask him something and he
+answers in place — no browser tab, no sign-up, and nothing to pay us, ever.
 
 ![Chatterbot 2000](docs/og.png)
 
-Ask it something in the bar at the bottom. Chatty answers in place, on the
-desktop, without a browser tab or a window stealing your focus.
+Chatterbot 2000 is a **standalone Windows app**. One file, double-click, done.
+It talks to any OpenAI-compatible model, including one running on your own
+machine, so you bring your own key — or no key at all.
 
-> **Chatterbot 2000 is a Rainmeter skin, not a standalone program.**
-> You need Rainmeter installed first — it is free, open source, and Windows only.
-> **Download it here: https://www.rainmeter.net/** (4.5 or newer).
+**Download: [chatterbot2000.com](https://chatterbot2000.com)** · installers are
+published under [Releases](../../releases).
 
-![Conversation and settings](docs/screens.png)
+![Conversation](docs/screens.png)
 
 ---
 
 ## What it does
 
-- **Talks to any OpenAI-compatible provider.** DeepSeek, OpenAI, Groq,
-  OpenRouter, Together — and **Ollama** or **LM Studio** running locally.
-- **Runs fully local if you want it to.** Pick Ollama or LM Studio in settings
-  and there is no API key, no account, and nothing leaves your machine.
-- **Live weather.** Real measured conditions and a 3-day forecast for any city,
-  from Open-Meteo. No key required, ever.
-- **Live web search.** The model decides when it needs to look something up.
-  Results appear as **clickable source pills** under the answer.
-- **Knows what day it is.** The date goes into every request, so it won't hand
-  you a two-year-old result and call it the latest.
-- **Collapses to its header** when you want the desktop back. Click the title.
+- **Free, and actually free.** No trial, no account, no time limit.
+- **Bring your own API key.** Your provider, your account — we never see it.
+- **Drop in images and files.** Hit `+` and Chatty reads them.
+- **Talk instead of typing.** Voice to text, built in.
+- **Private vault & memory.** It remembers what matters, on your disk.
+- **Live weather.** Real conditions and a 3-day forecast for any city, from
+  Open-Meteo. No key required, ever.
+- **Live web search.** The model decides when to look something up, and the
+  sources are listed under the answer.
+- **Knows what day it is.** The date goes into every request, so it will not
+  hand you a two-year-old result and call it current.
+- **Runs fully local if you want.** Pick Ollama or LM Studio and there is no
+  key, no account, and nothing leaves your machine.
 
 ## Install
 
-1. **Install Rainmeter first** if you do not already have it —
-   **https://www.rainmeter.net/** (free, open source, Windows only, 4.5+).
-   Nothing here works without it.
-2. Download the latest `.rmskin` from [Releases](../../releases).
-3. Double-click it. Rainmeter's installer does the rest.
-4. The status light starts **red** — no provider is configured yet.
-5. Click the **gear**, pick a provider, and the light turns **green**.
+1. Download the installer from **[chatterbot2000.com](https://chatterbot2000.com)**
+   or from [Releases](../../releases).
+2. Double-click it. It installs for your user only and never asks for admin.
+3. The status light starts **red** — no provider is configured yet.
+4. Click the **gear**, pick a provider, and the light turns **green**.
 
 ## Choosing a provider
-
-Click the gear to open settings.
 
 | Provider | Base URL | Key needed |
 |---|---|---|
@@ -53,8 +51,11 @@ Click the gear to open settings.
 | Custom | whatever you type | depends |
 
 Picking a preset fills in its base URL and a sensible default model. For the
-cloud providers, click the **API KEY** row and paste your key — it is stored in
-`@Resources\config.json` and displayed masked so a screenshot never leaks it.
+cloud providers, click the **API KEY** row and paste your key — it is stored on
+your own disk and displayed masked, so a screenshot never leaks it.
+
+You pay your provider for what you use, or run a local model and pay nobody.
+Nothing is ever owed to us for the app itself.
 
 ### Web search (optional)
 
@@ -67,52 +68,34 @@ plainly and answers from its own knowledge instead of pretending.
 
 Weather never needs a key either way.
 
-## Give it a different character
+## CODE·A.I. specialists — optional, and paid
 
-The skin is a shell. Four fields in `@Resources\config.json` and a different
-character inhabits it — header, input prompt, face and personality:
+Chatty handles the everyday. If you want an expert in one trade, there are 40
+vocational **CODE·A.I. specialists** you can hire from inside the app for
+**$3.99 once** — yours to keep.
 
-```json
-"BotName":   "Apothecary 2000",
-"BotAsk":    "Ask the Apothecary...",
-"BotFace":   "apothecary.png",
-"BotPrompt": "You are the Apothecary, a herbalist advising from a small desktop panel."
-```
-
-`BotFace` is a filename in `@Resources\Images`. Leave any field empty and it
-keeps the Chatty default, so a half-finished persona degrades gracefully
-instead of showing blanks. Reload the skin once after changing the face.
-
-`BotPrompt` replaces the identity line only — the panel's rendering and tool
-rules are always applied, so a persona can't start emitting markdown the panel
-cannot draw.
-
-## How it works
-
-Four files, one job each.
-
-| File | Owns |
-|---|---|
-| `Chatterbot 2000.ini` | layout, input, views |
-| `@Resources\deepseek.ps1` | the request, the stream, the tool loop |
-| `@Resources\tools.ps1` | executing a tool the model asked for |
-| `@Resources\chat.lua` | turning the transcript into message bubbles |
-| `@Resources\config.ps1` | reading and writing `config.json` |
-
-Tool calls stream: the model can ask for a search mid-answer, the tool runs, and
-the reply continues in the same turn. On the last permitted round the tools are
-withdrawn so it has to answer with what it found rather than searching forever.
-
-`design.md` documents the decisions and — more usefully — the traps, including
-several that cost real debugging time and are not obvious from the code.
+They are entirely optional and Chatty is complete without one. Nothing here is
+time-limited or nagged. [What they are](https://deliberon.com/code-ai).
 
 ## Privacy
 
 - With a **local provider**, nothing leaves your machine. No key, no account.
 - With a **cloud provider**, your messages go to that provider and nowhere else.
 - Weather calls Open-Meteo with a **place name you typed**, never your location.
-- Your keys live in `@Resources\config.json` on your disk. That file is
-  excluded from the package and from version control.
+- Your keys and your vault live on your own disk, excluded from packaging and
+  from version control.
+
+## The Rainmeter skin (legacy)
+
+Chatterbot 2000 began as a Rainmeter skin, and that version still lives in this
+repository — `Chatterbot 2000.ini` and `@Resources`.
+
+**It is no longer the product.** The Windows app is, and it is where new work
+goes. The skin needs [Rainmeter](https://www.rainmeter.net/) 4.5+ installed
+first and is kept here for people already running it.
+
+The skin's own notes, including its persona fields and the traps that cost real
+debugging time, are in [`design.md`](design.md).
 
 ## Credits
 
